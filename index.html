@@ -1,8 +1,40 @@
 <html>
     <head>
-
+        <title>King of the Town</title>
+        <link rel="stylesheet" href="styles.css"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     </head>
-    <body>
-        
+    <body class="flexCol indexBg" id="container">
+
+        <span class="bigTitle">
+            <span style="color: var(--pink)">KING</span> OF THE <span style="color: var(--yellow)">TOWN:</span>
+        </span>
+        <span class="bigTitle">
+            An <span style="color: var(--green)">Inaccurate Personality Test</span> and a <span style="color: var(--blue)">Living Comic Strip</span>
+        </span>
+
+        <br/><br/><br/><br/><br/><br/>
+
+        <div class="flexRow">
+            <form 
+                class="flexRow"
+                id="gameStart"
+                action="./quiz.html"
+            >
+                <button type="submit" class="submitButton" name="part" value="1" style="background-color: var(--pink);">Part 1</button>
+                <button type="submit" class="submitButton" name="part" value="2" style="background-color: var(--yellow);">Part 2</button>
+                <button type="submit" class="submitButton" name="part" value="3" style="background-color: var(--green);">Part 3</button>
+            </form>
+            <form 
+                class="flexRow"
+                id="gotoCredit"
+                action="./credits.html"
+            >
+                <button type="submit" class="submitButton" style="background-color: var(--blue);">Credits</button>
+            </form>
+        </div>
     </body>
+    <script>
+    </script>
 </html>
