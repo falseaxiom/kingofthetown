@@ -157,7 +157,6 @@ input[type=radio] {
     height: 25px;
     position: relative;
     visibility: hidden;
-    
 }
 input[type='radio']:after {
     width: 20px;
@@ -166,11 +165,11 @@ input[type='radio']:after {
     top: -2px;
     left: -2px;
     position: relative;
-    background-color: var(--halftown);
+    background-color: white;
     content: '';
     display: inline-block;
     visibility: visible;
-    border: 5px solid var(--halftown);
+    border: 5px solid white;
 }
 input[type='radio']:checked:after {
     width: 20px;
@@ -179,9 +178,28 @@ input[type='radio']:checked:after {
     top: -2px;
     left: -2px;
     position: relative;
-    background-color: var(--ftown);
+    background-color: var(--purple);
     content: '';
     display: inline-block;
     visibility: visible;
+    border: 5px solid white;
+}
+input[type='radio'].townRadio:after{
+    background-color: var(--halftown);
     border: 5px solid var(--halftown);
+}
+input[type='radio'].townRadio:checked:after{
+    background-color: var(--ftown);
+    border: 5px solid var(--halftown);
+}
+input[type='radio'].metroRadio:after{
+    background-color: var(--halfmetro);
+    border: 5px solid var(--halfmetro);
+}
+input[type='radio'].metroRadio:checked:after{
+    background-color: var(--fmetro);
+    border: 5px solid var(--halfmetro);
+}
+input[type='radio'].hidden:after{
+    visibility: hidden;
 }

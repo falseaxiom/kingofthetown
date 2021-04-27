@@ -6,31 +6,31 @@
         <link rel="preconnect" href="https://fonts.gstatic.com"> 
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     </head>
-    <body class="town">
+    <body id="body" class="town">
         <div id="container" style="width: 80%; overflow: hidden;">
             <!-- intro -->
             <div class="flexCol hidden" id="intro">
-                <span class="title">Hello! Welcome to</span>
-
+                <span class="title">Hello! Welcome to PART 1 of</span>
+                <br/>
                 <span class="bigTitle">
-                    KING OF THE TOWN: <br/>
-                    An Inaccurate Personality Test<br/>
-                    and a Living Comic Strip.
+                    <span style="color: var(--pink)">KING</span> OF THE <span style="color: var(--yellow)">TOWN:</span> <br/>
+                    An <span style="color: var(--green)">Inaccurate Personality Test</span><br/>
+                    and a <span style="color: var(--blue)">Living Comic Strip.</span>
                 </span>
-
+                <br/>
                 <span class="title">
                     To start, we're going to be asking you a few questions.
                 </span>
                 <span class="title">
                     Please answer honestly--but try not to take us too seriously, either!
                 </span>
-                <br/><br/>
+                <br/>
                 <form
                     class="flexCol"
                     action="./quizp1.html"
                     onSubmit="return true"
                 >
-                    <button type="submit" class="submitButton townButton" name="code" value="0-0-0-0-PRE">Let's begin!</button>
+                    <button type="submit" class="submitButton townButton" id="butt" name="code" value="0-0-0-0-PRE">Let's begin!</button>
                 </form>
             </div>
 
@@ -41,7 +41,7 @@
                 action="./quizp1.html"
                 onSubmit="return quizPre()"
             >
-                <input id="pass1" name="code" class="hidden" style="font-size: 0rem">
+                <input type="hidden" id="pass1" name="code">
                 <span class="title">
                     1. How are you feeling today?
                 </span>
@@ -54,14 +54,14 @@
                 <span class="title">
                     2. Would you rather be at home or out and about?
                 </span>
-                <div><input type="radio" name="q2" id="home" value="home"><label for="home"> At home</label></div>
-                <div><input type="radio" name="q2" id="out" value="out"><label for="out"> Out and about</label></div>
+                <div><input type="radio" class="townRadio" name="q2" id="home" value="home"><label for="home"> At home</label></div>
+                <div><input type="radio" class="townRadio" name="q2" id="out" value="out"><label for="out"> Out and about</label></div>
                 <br/>
                 <span class="title">
                     3. When you think about the world today, are you generally optimistic or generally pessimistic?
                 </span>
-                <div><input type="radio" name="q3" id="home" value="opt"><label for="opt"> Optimistic</label></div>
-                <div><input type="radio" name="q3" id="out" value="pess"><label for="pess"> Pessimistic</label></div>
+                <div><input type="radio" class="townRadio" name="q3" id="home" value="opt"><label for="opt"> Optimistic</label></div>
+                <div><input type="radio" class="townRadio" name="q3" id="out" value="pess"><label for="pess"> Pessimistic</label></div>
                 <br/>
                 <button type="submit" class="submitButton townButton" onclick="quizPre()">Submit</button>
             </form>
@@ -74,7 +74,7 @@
                     action="./quizp1.html"
                     onSubmit="return vid1func()"
                 >
-                    <input id="passv1" name="code" class="hidden" style="font-size: 0rem">
+                    <input type="hidden" id="passv1" name="code">
                     <button type="submit" class="submitButton townButton" onclick="vid1func()">Continue</button>
                 </form>
             </div>
@@ -86,12 +86,12 @@
                 action="./quizp1.html"
                 onSubmit="return quizPost()"
             >
-            <input id="pass2" name="code" class="hidden" style="font-size: 0rem">
+            <input type="hidden" id="pass2" name="code">
             <span class="title">
                 4. Do you want to go to the Multiplatinum Metropolis, or do you want to stay in Stamtown?
             </span>
-            <div><input type="radio" name="q4" id="go" value="go"><label for="go"> Go to Metropolis</label></div>
-            <div><input type="radio" name="q4" id="stay" value="stay"><label for="stay"> Stay in Stamtown</label></div>
+            <div><input type="radio" class="townRadio" name="q4" id="go" value="go"><label for="go"> Go to Metropolis</label></div>
+            <div><input type="radio" class="townRadio" name="q4" id="stay" value="stay"><label for="stay"> Stay in Stamtown</label></div>
             <br/>
             <button type="submit" class="submitButton townButton" onclick="quizPost()">Submit</button>
             </form>
@@ -104,7 +104,7 @@
                     action="./quizp1.html"
                     onSubmit="return vid2func()"
                 >
-                    <input id="passv2" name="code" class="hidden" style="font-size: 0rem">
+                    <input type="hidden" id="passv2" name="code">
                     <button type="submit" class="submitButton townButton" onclick="vid2func()">Continue</button>
                 </form>
             </div>
@@ -117,7 +117,7 @@
                     action="./quizp1.html"
                     onSubmit="return vid3func()"
                 >
-                    <input id="passv3" name="code" class="hidden" style="font-size: 0rem">
+                    <input type="hidden" id="passv3" name="code">
                     <button type="submit" class="submitButton townButton" onclick="vid3func()">Continue</button>
                 </form>
             </div>
@@ -173,8 +173,12 @@
         else if (str === "G") vid2.className = "flexCol";
         else if (str === "S") vid3.className = "flexCol";
         else if (str === "GDONE" || str === "SDONE") done.className = "flexCol";
-        else intro.className = "flexCol";
-        
+        else {
+            document.getElementById("body").className = "indexBg";
+            document.getElementById("butt").style = "background-color: var(--purple);";
+            intro.className = "flexCol";
+        }
+
         function quizPre() {
             // question 1
             let q1 = parseInt(document.getElementById("q1").value);
@@ -186,13 +190,14 @@
             // question 2
             let q2 = document.getElementsByName("q2");
             if (q2[0].checked) { jamie++; conrad++; }
-            else               { minoshka++; senator++;}
+            else               { minoshka++; senator++; }
 
             // question 3
             let q3 = document.getElementsByName("q3");
             if (q3[0].checked) { conrad++; minoshka++; }
-            else               { jamie++; senator++;}
+            else               { jamie++; senator++; }
 
+            // move on to video 1.1
             str="V1";
             
             // pass
@@ -205,7 +210,7 @@
         function quizPost() {
             // question 4
             let q4 = document.getElementsByName("q4");
-            if (q4[0].checked) { conrad++; minoshka++; str="G" ;}
+            if (q4[0].checked) { conrad++; minoshka++; str="G"; }
             else               { jamie++; senator++; str="S"; }
             
             let pass2 = document.getElementById("pass2");
