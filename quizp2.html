@@ -7,10 +7,10 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     </head>
     <body class="indexBg" id="body">
-        <div  id="container" style="width: 80%; overflow: hidden">
+        <div id="container" style="width: 80%; overflow: hidden">
             <!-- code input -->
             <div class="flexCol hidden" id="intro">
-                <span class="title">Hello! Welcome to PART 2 of</span>
+                <span class="title">Hello! Welcome to <span style="color: var(--yellow)">PART 2</span> of</span>
                 <br/>
                 <span class="bigTitle">
                     <span style="color: var(--pink)">KING</span> OF THE <span style="color: var(--yellow)">TOWN:</span> <br/>
@@ -18,15 +18,15 @@
                     and a <span style="color: var(--blue)">Living Comic Strip.</span>
                 </span>
                 <br/>
-                <span class="title">Please enter the code you received at the end of PART 1:</span>
+                <span class="title">Please enter the code you received at the end of <span style="color: var(--pink)">PART 1:</span></span>
                 <br/>
                 <form
                     class="flexRow"
                     action="./quizp2.html"
                     onSubmit="return true"
                 >  
-                    <input type="text" id="code" name="code" style="border-color: var(--purple);" placeholder="ex: 1-2-3-4-ABCD">
-                    <button type="submit" class="submitButton" style="background-color: var(--purple);">enter</button>
+                    <input type="text" id="code" name="code" style="border-color: var(--purple);" placeholder="ex: 12-34-56-78-ABCD">
+                    <button type="submit" class="submitButton" style="background-color: var(--purple);">Enter</button>
                 </form>
             </div>
 
@@ -96,28 +96,15 @@
                 action="./quizp2.html"
                 onSubmit="return quizPost()"
             >
-            <input type="hidden" id="pass2" name="code">
-            <span class="title">
-                4. MPU or Stamtown?
-            </span>
-            <div><input type="radio" class="townRadio" name="q4" id="go" value="go"><label for="go"> MPU</label></div>
-            <div><input type="radio" class="townRadio" name="q4" id="stay" value="stay"><label for="stay"> Stamtown</label></div>
-            <br/>
-            <button type="submit" class="submitButton townButton" onclick="quizPost()">Submit</button>
+                <input type="hidden" id="pass2" name="code">
+                <span class="title">
+                    4. MPU or Stamtown?
+                </span>
+                <div><input type="radio" class="townRadio" name="q4" id="go" value="go"><label for="go"> MPU</label></div>
+                <div><input type="radio" class="townRadio" name="q4" id="stay" value="stay"><label for="stay"> Stamtown</label></div>
+                <br/>
+                <button type="submit" class="submitButton townButton" onclick="quizPost()">Submit</button>
             </form>
-
-            <!-- video 1.2 -->
-            <div class="flexCol hidden" id="vid2">
-                <span>please watch video 1.2 before continuing</span>
-                <form
-                    class="flexCol"
-                    action="./quizp1.html"
-                    onSubmit="return vid2func()"
-                >
-                    <input type="hidden" id="passv2" name="code">
-                    <button type="submit" class="submitButton townButton" onclick="vid2func()">Continue</button>
-                </form>
-            </div>
 
             <!-- video 2.3 -->
             <div class="flexCol hidden" id="vid3">
@@ -246,6 +233,7 @@
         }
 
         // hide widgets as appropriate
+        console.log(widget)
         if (widget === "PRE") pre.className = "flexCol";
         else if (widget === "V1") vid1.className = "flexCol";
         else if (widget === "V2") vid2.className = "flexCol";
@@ -315,8 +303,12 @@
         }
 
         // code
-        if (widget === "GDONE") document.getElementById("codef").innerHTML = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + sg1 + "GPRE";
-        if (widget === "SDONE") document.getElementById("codef").innerHTML = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + sg1 + "SPRE";
+        let c = ("0" + conrad).slice(-2);
+        let j = ("0" + jamie).slice(-2);
+        let m = ("0" + minoshka).slice(-2);
+        let s = ("0" + senator).slice(-2);
+        if (widget === "GDONE") document.getElementById("codef").innerHTML = c + "-" + j + "-" + m + "-" + s + "-" + sg1 + "GPRE";
+        if (widget === "SDONE") document.getElementById("codef").innerHTML = c + "-" + j + "-" + m + "-" + s + "-" + sg1 + "SPRE";
 
     </script>
 </html>

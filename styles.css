@@ -91,6 +91,7 @@ a{
     border-radius: 5px;
     color: white;
     font-family: 'Roboto Mono', monospace;
+    background-color: var(--purple);
 }
 .townButton{
     background-color: var(--ftown);

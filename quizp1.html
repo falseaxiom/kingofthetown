@@ -10,7 +10,7 @@
         <div id="container" style="width: 80%; overflow: hidden;">
             <!-- intro -->
             <div class="flexCol hidden" id="intro">
-                <span class="title">Hello! Welcome to PART 1 of</span>
+                <span class="title">Hello! Welcome to <span style="color: var(--pink)">PART 1</span> of</span>
                 <br/>
                 <span class="bigTitle">
                     <span style="color: var(--pink)">KING</span> OF THE <span style="color: var(--yellow)">TOWN:</span> <br/>
@@ -86,14 +86,14 @@
                 action="./quizp1.html"
                 onSubmit="return quizPost()"
             >
-            <input type="hidden" id="pass2" name="code">
-            <span class="title">
-                4. Do you want to go to the Multiplatinum Metropolis, or do you want to stay in Stamtown?
-            </span>
-            <div><input type="radio" class="townRadio" name="q4" id="go" value="go"><label for="go"> Go to Metropolis</label></div>
-            <div><input type="radio" class="townRadio" name="q4" id="stay" value="stay"><label for="stay"> Stay in Stamtown</label></div>
-            <br/>
-            <button type="submit" class="submitButton townButton" onclick="quizPost()">Submit</button>
+                <input type="hidden" id="pass2" name="code">
+                <span class="title">
+                    4. Do you want to go to the Multiplatinum Metropolis, or do you want to stay in Stamtown?
+                </span>
+                <div><input type="radio" class="townRadio" name="q4" id="go" value="go"><label for="go"> Go to Metropolis</label></div>
+                <div><input type="radio" class="townRadio" name="q4" id="stay" value="stay"><label for="stay"> Stay in Stamtown</label></div>
+                <br/>
+                <button type="submit" class="submitButton townButton" onclick="quizPost()">Submit</button>
             </form>
 
             <!-- video 1.2 -->
@@ -224,8 +224,12 @@
         }
 
         // code
-        if (str === "GDONE") document.getElementById("codef").innerHTML = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-GPRE";
-        if (str === "SDONE") document.getElementById("codef").innerHTML = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-SPRE";
+        let c = ("0" + conrad).slice(-2);
+        let j = ("0" + jamie).slice(-2);
+        let m = ("0" + minoshka).slice(-2);
+        let s = ("0" + senator).slice(-2);
+        if (str === "GDONE") document.getElementById("codef").innerHTML = c + "-" + j + "-" + m + "-" + s + "-GPRE";
+        if (str === "SDONE") document.getElementById("codef").innerHTML = c + "-" + j + "-" + m + "-" + s + "-SPRE";
 
     </script>
 </html>

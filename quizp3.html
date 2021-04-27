@@ -6,31 +6,211 @@
         <link rel="preconnect" href="https://fonts.gstatic.com"> 
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     </head>
-    <body class="town">
+    <body class="indexBg" id="body">
 
-        <div  id="container" style="width: 80%">
+        <div id="container" style="width: 80%; overflow: hidden">
             <!-- code input -->
-            <div class="flexCol" id="intro">
-                <!-- testing -->
-                <span>hello. part 3</span>
+            <div class="flexCol hidden" id="intro">
+                <span class="title">Hello! Welcome to <span style="color: var(--green)">PART 3</span> of</span>
                 <br/>
-
-                <span class="title">Please enter your code:</span>
+                <span class="bigTitle">
+                    <span style="color: var(--pink)">KING</span> OF THE <span style="color: var(--yellow)">TOWN:</span> <br/>
+                    An <span style="color: var(--green)">Inaccurate Personality Test</span><br/>
+                    and a <span style="color: var(--blue)">Living Comic Strip.</span>
+                </span>
+                <br/>
+                <span class="title">Please enter the code you received at the end of <span style="color: var(--yellow)">PART 2:</span></span>
+                <br/>
                 <form
                     class="flexRow"
                     action="./quizp3.html"
-                    onSubmit="return validate()"
+                    onSubmit="return true"
                 >  
-                    <input type="text" id="code" name="code" style="border-color: var(--ftown);" placeholder="code goes here">
-                    <button type="submit" class="submitButton" style="background-color: var(--ftown);" name="section" value="pre" onclick="validate()">enter</button>
+                    <input type="text" id="code" name="code" style="border-color: var(--purple);" placeholder="ex: 12-34-56-78-ABCDE">
+                    <button type="submit" class="submitButton" style="background-color: var(--purple);">Enter</button>
                 </form>
+                <br/>
+                <span class="title" style="font-size: 1.5rem; color: rgb(207, 207, 207);">(Be careful--this code has <span style="color: var(--blue)">1 more letter</span> than the code you needed for <span style="color: var(--yellow)">PART 2!</span>)</span>
             </div>
 
             <!-- pre-scene -->
-            <div class="flexCol hidden" id="pre">hello</div>
+            <form 
+                class="flexCol hidden"
+                id="pre"
+                action="./quizp3.html"
+                onSubmit="return quizPre()"
+            >
+                <input type="hidden" id="pass1" name="code">
+                <span class="title">
+                    1. What’s your favorite ice cream flavor?
+                </span>
+                <div><input type="radio" class="" name="q1" id="vanilla" value="vanilla"><label for="vanilla"> Vanilla</label></div>
+                <div><input type="radio" class="" name="q1" id="chocolate" value="chocolate"><label for="chocolate"> Chocolate</label></div>
+                <div><input type="radio" class="" name="q1" id="strawberry" value="strawberry"><label for="strawberry"> Strawberry</label></div>
+                <div><input type="radio" class="" name="q1" id="other" value="other"><label for="other"> Other</label></div>
+                <br/>
+                <span class="title">
+                    2. What is most important to you in a friend/partner?
+                </span>
+                <div><input type="radio" class="" name="q2" id="honesty" value="honesty"><label for="honesty"> Honesty</label></div>
+                <div><input type="radio" class="" name="q2" id="loyalty" value="loyalty"><label for="loyalty"> Loyalty</label></div>
+                <div><input type="radio" class="" name="q2" id="empathy" value="empathy"><label for="empathy"> Empathy</label></div>
+                <div><input type="radio" class="" name="q2" id="humor" value="humor"><label for="humor"> Sense of humor</label></div>
+                <br/>
+                <span class="title">
+                    3. Have you ever been in love?
+                </span>
+                <div><input type="radio" class="" name="q3" id="yy" value="yy"><label for="yy"> Yes! I am currently in love. &lt;3</label></div>
+                <div><input type="radio" class="" name="q3" id="yn" value="yn"><label for="yn"> Yes, but not anymore. &lt;/3</label></div>
+                <div><input type="radio" class="" name="q3" id="n" value="n"><label for="n"> No.</label></div>
+                <div><input type="radio" class="" name="q3" id="s" value="s"><label for="s"> I'm not sure...</label></div>
+                <br/>
+                <button type="submit" class="submitButton" onclick="quizPre()">Submit</button>
+            </form>
+
+            <!-- video 3 -->
+            <div class="flexCol hidden" id="vid3">
+                <span>please watch video 3 before continuing</span>
+                <form
+                    class="flexCol"
+                    action="./quizp3.html"
+                    onSubmit="return vid3func()"
+                >
+                    <input type="hidden" id="passv3" name="code">
+                    <button type="submit" class="submitButton" onclick="vid3func()">Continue</button>
+                </form>
+            </div>
 
             <!-- post-scene -->
-            <div class="flexCol hidden" id="post">goodbye</div>
+            <form 
+                class="flexCol hidden"
+                id="post"
+                action="./quizp3.html"
+                onSubmit="return quizPost()"
+            >
+                <input type="hidden" id="pass2" name="code">
+                <span class="title">
+                    4. Should <span style="color: var(--yellow)">Senator Tomromadrom</span> enter the <span style="color: var(--blue)">Simulation?</span>
+                </span>
+                <div><input type="radio" class="" name="q4" id="go" value="go"><label for="go"> <span style="color: var(--green)">Enter</span> the <span style="color: var(--blue)">Simulation</span></label></div>
+                <div><input type="radio" class="" name="q4" id="stay" value="stay"><label for="stay"> <span style="color: var(--pink)">Don't Enter</span> the <span style="color: var(--blue)">Simulation</span></label></div>
+                <br/>
+                <button type="submit" class="submitButton" onclick="quizPost()">Submit</button>
+            </form>
+
+            <!-- video 4.1 -->
+            <div class="flexCol hidden" id="vid41">
+                <span>please watch video 4.1 before continuing</span>
+                <form
+                    class="flexCol"
+                    action="./quizp3.html"
+                    onSubmit="return vid4func()"
+                >
+                    <input type="hidden" id="passv41" name="code">
+                    <button type="submit" class="submitButton" onclick="vid4func()">Continue</button>
+                </form>
+            </div>
+
+            <!-- video 4.2 -->
+            <div class="flexCol hidden" id="vid42">
+                <span>please watch video 4.2 before continuing</span>
+                <form
+                    class="flexCol"
+                    action="./quizp3.html"
+                    onSubmit="return vid4func()"
+                >
+                    <input type="hidden" id="passv42" name="code">
+                    <button type="submit" class="submitButton" onclick="vid4func()">Continue</button>
+                </form>
+            </div>
+
+            <!-- post-scene 2 -->
+            <form 
+                class="flexCol hidden"
+                id="post2"
+                action="./quizp3.html"
+                onSubmit="return quizPost2()"
+            >
+                <input type="hidden" id="pass3" name="code">
+                <span class="title">
+                    5. Should you <span style="color: var(--green)">go back</span> to <span style="color: var(--yellow)">3005</span>, or should you <span style="color: var(--pink)">stay</span> in the <span style="color: var(--blue)">Simulation?</span>
+                </span>
+                <div><input type="radio" class="" name="q5" id="go" value="go"><label for="go"> <span style="color: var(--green)">Go back</span> to <span style="color: var(--yellow)">3005</span></label></div>
+                <div><input type="radio" class="" name="q5" id="stay" value="stay"><label for="stay"> <span style="color: var(--pink)">Stay</span> in the <span style="color: var(--blue)">Simulation</span></label></div>
+                <br/>
+                <button type="submit" class="submitButton" onclick="quizPost2()">Submit</button>
+            </form>
+
+            <!-- video 5.1 -->
+            <div class="flexCol hidden" id="vid51">
+                <span class="title">
+                    <span style="color: var(--yellow)">Surprise!</span> That answer <span style="color: var(--pink)">didn't matter.</span> 
+                    You already made your choice, starting from the <span style="color: var(--blue)">first question</span> you answered. 
+                    Here’s what you decided should happen to <span style="color: var(--green)">Conrad:</span>
+                </span>
+                <span>please watch video 5.1 before continuing</span>
+                <form
+                    class="flexCol"
+                    action="./quizp3.html"
+                    onSubmit="return vid5func()"
+                >
+                    <input type="hidden" id="passv51" name="code">
+                    <button type="submit" class="submitButton" onclick="vid5func()">Continue</button>
+                </form>
+            </div>
+
+            <!-- video 5.2 -->
+            <div class="flexCol hidden" id="vid52">
+                <span class="title">
+                    <span style="color: var(--yellow)">Surprise!</span> That answer <span style="color: var(--pink)">didn't matter.</span> 
+                    You already made your choice, starting from the <span style="color: var(--blue)">first question</span> you answered. 
+                    Here’s what you decided should happen to <span style="color: var(--green)">Conrad:</span>
+                </span>
+                <span>please watch video 5.2 before continuing</span>
+                <form
+                    class="flexCol"
+                    action="./quizp3.html"
+                    onSubmit="return vid5func()"
+                >
+                    <input type="hidden" id="passv52" name="code">
+                    <button type="submit" class="submitButton" onclick="vid5func()">Continue</button>
+                </form>
+            </div>
+
+            <!-- video 5.3 -->
+            <div class="flexCol hidden" id="vid53">
+                <span class="title">
+                    <span style="color: var(--yellow)">Surprise!</span> That answer <span style="color: var(--pink)">didn't matter.</span> 
+                    You already made your choice, starting from the <span style="color: var(--blue)">first question</span> you answered. 
+                    Here’s what you decided should happen to <span style="color: var(--green)">Conrad:</span>
+                </span>
+                <span>please watch video 5.3 before continuing</span>
+                <form
+                    class="flexCol"
+                    action="./quizp3.html"
+                    onSubmit="return vid5func()"
+                >
+                    <input type="hidden" id="passv53" name="code">
+                    <button type="submit" class="submitButton" onclick="vid5func()">Continue</button>
+                </form>
+            </div>
+
+            <!-- exit -->
+            <div class="flexCol hidden" id="done">
+                <span class="title">CONGRATULATIONS!</span>
+                <span class="title">You have completed <span style="color: var(--green)">PART 3</span> of this adventure.</span>
+                <span class="title">Thank you for playing</span>
+                <br/>
+                <span class="bigTitle">
+                    <span style="color: var(--pink)">KING</span> OF THE <span style="color: var(--yellow)">TOWN:</span> <br/>
+                    An <span style="color: var(--green)">Inaccurate Personality Test</span><br/>
+                    and a <span style="color: var(--blue)">Living Comic Strip.</span>
+                </span>
+                <br/>
+                <span class="title">Please reset this machine for the next player by clicking the button below. Thank you! :)</span>
+                <br/>
+                <button type="submit" class="submitButton" onclick="location.href = './quizp3.html?code=0-0-0-0-';">Reset</button>
+            </div>
         </div>
 
         <!-- admin only - return to index -->
@@ -43,30 +223,153 @@
         let param = window.location.href.split("?");
         let p;
         if (param.length > 1) p = param[1].split(/=|&/);
-
         console.log(p)
 
-        // get sections
+        // CHARACTER VARS & CHARTSTRING
+        let scores = p[1].split("-");
+        let conrad = parseInt(scores[0]);
+        let jamie = parseInt(scores[1]);
+        let minoshka = parseInt(scores[2]);
+        let senator = parseInt(scores[3]);
+        let str = scores[4];
+        let sg1 = str.substring(0,1);
+        let sg2 = str.substring(1,2);
+        let widget = str.substring(2);
+        console.log(scores)
+
+        // SECTIONS
         let intro = document.getElementById("intro");
         let pre = document.getElementById("pre");
+        let vid3 = document.getElementById("vid3");
         let post = document.getElementById("post");
+        let vid41 = document.getElementById("vid41");
+        let vid42 = document.getElementById("vid42");
+        let post2 = document.getElementById("post2");
+        let vid51 = document.getElementById("vid51");
+        let vid52 = document.getElementById("vid52");
+        let vid53 = document.getElementById("vid53");
+        let done = document.getElementById("done");
 
-        // hide as appropriate
-        if (p != undefined) {
-            if (p[3] === "pre") {
-                intro.className = "flexCol hidden";
-                pre.className = "flexCol";
-                post.className = "flexCol hidden";
-            }
-            else if (p[3] === "post") {
-                intro.className = "flexCol hidden";
-                pre.className = "flexCol hidden";
-                post.className = "flexCol";
-            }
+        // change theme as appropriate
+        console.log(sg2)
+        if (widget === "PRE" && sg2 === "G") {
+            console.log("metro mode ACTIVATE")
+
+            // change bg and text
+            document.getElementById("body").className = "metro";
+
+            // change buttons
+            let buttons = document.getElementsByClassName("submitButton");
+            buttons = Array.from(buttons);
+            buttons.forEach(b => b.className = "submitButton metroButton");
+
+            // change radios
+            let radios = document.querySelectorAll('input[type=radio]');
+            radios = Array.from(radios);
+            radios.forEach(r => r.className = "metroRadio");
+        }
+        else if (widget === "PRE" && sg2 === "S") {
+            console.log("town mode ACTIVATE")
+            
+            // change bg and text
+            document.getElementById("body").className = "town";
+
+            // change buttons
+            let buttons = document.getElementsByClassName("submitButton");
+            buttons = Array.from(buttons);
+            buttons.forEach(b => b.className = "submitButton townButton");
+
+            // change radios
+            let radios = document.querySelectorAll('input[type=radio]');
+            radios = Array.from(radios);
+            radios.forEach(r => r.className = "townRadio");
         }
 
-        function validate() {
+        // hide widgets as appropriate
+        console.log(widget)
+        if (widget === "PRE") pre.className = "flexCol";
+        else if (widget === "V3") vid3.className = "flexCol";
+        else if (widget === "POST") post.className = "flexCol";
+        else if (widget === "E") vid41.className = "flexCol";
+        else if (widget === "D") vid42.className = "flexCol";
+        else if (widget === "EPOST2" || widget === "DPOST2") post2.className = "flexCol";
+        else if (widget === "J" || widget === "M") vid51.className = "flexCol";
+        else if (widget === "C") vid52.className = "flexCol";
+        else if (widget === "S") vid53.className = "flexCol";
+        else if (widget.substring(1) === "DONE") {
+            done.className = "flexCol";
+            let radios = document.querySelectorAll('input[type=radio]');
+            radios = Array.from(radios);
+            radios.forEach(r => r.className = "hidden");
+        }
+        else intro.className = "flexCol";
+        
+        function quizPre() {
+            // question 1
+            let q1 = document.getElementsByName("q1");
+            if (q1[0].checked)      conrad++;
+            else if (q1[1].checked) jamie++;
+            else if (q1[2].checked) minoshka++;
+            else                    senator++;
+
+            // question 2
+            let q2 = document.getElementsByName("q2");
+            if (q2[0].checked)      senator++;
+            else if (q2[1].checked) jamie++;
+            else if (q2[2].checked) conrad++;
+            else                    minoshka++;
+
+            // question 3
+            let q3 = document.getElementsByName("q3");
+            if (q3[0].checked)      conrad++;
+            else if (q3[1].checked) jamie++;
+            else if (q3[2].checked) senator++;
+            else                    minoshka++;
+
+            // move on to video 2.1 or 2.2
+            str = sg1 + sg2 + "V3";
             
+            // pass
+            let pass1 = document.getElementById("pass1");
+            pass1.value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str;
+        }
+        function vid3func() {
+            document.getElementById("passv3").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + sg1 + sg2 + "POST";
+        }
+        function quizPost() {
+            // question 4
+            let q4 = document.getElementsByName("q4");
+            if (q4[0].checked) { senator++; minoshka++; str=sg1+sg2+"E"; }
+            else               { conrad++; jamie++; str=sg1+sg2+"D"; }
+            
+            let pass2 = document.getElementById("pass2");
+            pass2.value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str;
+        }
+        function vid4func() {
+            document.getElementById("passv41").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str + "POST2";
+            document.getElementById("passv42").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str + "POST2";
+        }
+        function quizPost2() {
+            // question 5
+            let q5 = document.getElementsByName("q5");
+            if (q5[0].checked) { senator++; minoshka++; }
+            else               { conrad++; jamie++; }
+
+            // who won?
+            winner = Math.max(Math.max(conrad, jamie), Math.max(senator, minoshka));
+            if (winner == conrad)       str = sg1 + sg2 + "C";
+            else if (winner == jamie)   str = sg1 + sg2 + "J";
+            else if (winner == minoshka) str = sg1 + sg2 + "M";
+            else                        str = sg1 + sg2 + "S";
+
+            
+            let pass2 = document.getElementById("pass3");
+            pass2.value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str;
+        }
+        function vid5func() {
+            document.getElementById("passv51").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str + "DONE";
+            document.getElementById("passv52").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str + "DONE";
+            document.getElementById("passv52").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str + "DONE";
         }
     </script>
 </html>
