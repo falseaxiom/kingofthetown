@@ -1,0 +1,225 @@
+<html>
+    <head>
+        <title>King of the Town</title>
+        <link rel="stylesheet" href="styles.css"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body class="town">
+        <div id="container" style="width: 80%; overflow: hidden;">
+            <!-- intro -->
+            <div class="flexCol hidden" id="intro">
+                <span class="title">Hello! Welcome to</span>
+
+                <span class="bigTitle">
+                    KING OF THE TOWN: <br/>
+                    An Inaccurate Personality Test<br/>
+                    and a Living Comic Strip.
+                </span>
+
+                <span class="title">
+                    To start, we're going to be asking you a few questions.
+                </span>
+                <span class="title">
+                    Please answer honestly--but try not to take us too seriously, either!
+                </span>
+                <br/><br/>
+                <form
+                    class="flexCol"
+                    action="./quizp1.html"
+                    onSubmit="return true"
+                >
+                    <button type="submit" class="submitButton" id="townButton" name="code" value="0-0-0-0-PRE">Let's begin!</button>
+                </form>
+            </div>
+
+            <!-- pre-scene -->
+            <form 
+                class="flexCol hidden"
+                id="pre"
+                action="./quizp1.html"
+                onSubmit="return quizPre()"
+            >
+                <input id="pass1" name="code" class="hidden" style="font-size: 0rem">
+                <span class="title">
+                    1. How are you feeling today?
+                </span>
+                <div class="flexRow" style="align-items: center;">
+                    <span style="font-size: 2rem;">AWFUL!!!</span>
+                    <input type="range" min="1" max="100" value="50" class="slider" id="q1" style="background-color: var(--halftown); color: var(--ftown);">
+                    <span style="font-size: 2rem;">AWESOME!!!</span>
+                </div>
+                <br/>
+                <span class="title">
+                    2. Would you rather be at home or out and about?
+                </span>
+                <div><input type="radio" name="q2" id="home" value="home"><label for="home"> At home</label></div>
+                <div><input type="radio" name="q2" id="out" value="out"><label for="out"> Out and about</label></div>
+                <br/>
+                <span class="title">
+                    3. When you think about the world today, are you generally optimistic or generally pessimistic?
+                </span>
+                <div><input type="radio" name="q3" id="home" value="opt"><label for="opt"> Optimistic</label></div>
+                <div><input type="radio" name="q3" id="out" value="pess"><label for="pess"> Pessimistic</label></div>
+                <br/>
+                <button type="submit" class="submitButton" id="townButton" onclick="quizPre()">Submit</button>
+            </form>
+
+            <!-- video 1.1 -->
+            <div class="flexCol hidden" id="vid1">
+                <span>please watch video 1.1 before continuing</span>
+                <form
+                    class="flexCol"
+                    action="./quizp1.html"
+                    onSubmit="return vid1func()"
+                >
+                    <input id="passv1" name="code" class="hidden" style="font-size: 0rem">
+                    <button type="submit" class="submitButton" id="townButton" onclick="vid1func()">Continue</button>
+                </form>
+            </div>
+
+            <!-- post-scene -->
+            <form 
+                class="flexCol hidden"
+                id="post"
+                action="./quizp1.html"
+                onSubmit="return quizPost()"
+            >
+            <input id="pass2" name="code" class="hidden" style="font-size: 0rem">
+            <span class="title">
+                4. Do you want to go to the Multiplatinum Metropolis, or do you want to stay in Stamtown?
+            </span>
+            <div><input type="radio" name="q4" id="go" value="go"><label for="go"> Go to Metropolis</label></div>
+            <div><input type="radio" name="q4" id="stay" value="stay"><label for="stay"> Stay in Stamtown</label></div>
+            <br/>
+            <button type="submit" class="submitButton" id="townButton" onclick="quizPost()">Submit</button>
+            </form>
+
+            <!-- video 1.2 -->
+            <div class="flexCol hidden" id="vid2">
+                <span>please watch video 1.2 before continuing</span>
+                <form
+                    class="flexCol"
+                    action="./quizp1.html"
+                    onSubmit="return vid2func()"
+                >
+                    <input id="passv2" name="code" class="hidden" style="font-size: 0rem">
+                    <button type="submit" class="submitButton" id="townButton" onclick="vid2func()">Continue</button>
+                </form>
+            </div>
+
+            <!-- video 1.3 -->
+            <div class="flexCol hidden" id="vid3">
+                <span>please watch video 1.3 before continuing</span>
+                <form
+                    class="flexCol"
+                    action="./quizp1.html"
+                    onSubmit="return vid3func()"
+                >
+                    <input id="passv3" name="code" class="hidden" style="font-size: 0rem">
+                    <button type="submit" class="submitButton" id="townButton" onclick="vid3func()">Continue</button>
+                </form>
+            </div>
+
+            <!-- video 1.3 -->
+            <div class="flexCol hidden" id="done">
+                <span class="title">CONGRATULATIONS!</span>
+                <span class="title">You have completed PART 1 of this adventure.</span>
+                <span class="title">Please input the following code at the next machine:</span>
+                <br/>
+                <span class="bigTitle" id="codef"></span>
+                <br/>
+                <span class="title">Once you've written down your code, please reset this machine for the next player by clicking the button below. Thank you! :)</span>
+                <br/>
+                <button type="submit" class="submitButton" id="townButton" onclick="location.href = './quizp1.html?code=0-0-0-0-';">Reset</button>
+            </div>
+        </div>
+        
+        <!-- admin only - return to index -->
+        <a style="position: absolute; bottom: 1vh; left: 1vw; font-size: 1rem;" href="./">
+            index
+        </a>
+    </body>
+    <script>
+        // get part/code
+        let param = window.location.href.split("?");
+        let p;
+        if (param.length > 1) p = param[1].split(/=|&/);
+        console.log(p)
+
+        // CHARACTER VARS & CHARTSTRING
+        let scores = p[1].split("-");
+        let conrad = parseInt(scores[0]);
+        let jamie = parseInt(scores[1]);
+        let minoshka = parseInt(scores[2]);
+        let senator = parseInt(scores[3]);
+        let str = scores[4];
+        console.log(scores)
+
+        // SECTIONS
+        let intro = document.getElementById("intro");
+        let pre = document.getElementById("pre");
+        let vid1 = document.getElementById("vid1");
+        let post = document.getElementById("post");
+        let vid2 = document.getElementById("vid2");
+        let vid3 = document.getElementById("vid3");
+        let done = document.getElementById("done");
+
+        // hide as appropriate
+        if (str === "PRE") pre.className = "flexCol";
+        else if (str === "V1") vid1.className = "flexCol";
+        else if (str === "POST") post.className = "flexCol";
+        else if (str === "G") vid2.className = "flexCol";
+        else if (str === "S") vid3.className = "flexCol";
+        else if (str === "GDONE" || str === "SDONE") done.className = "flexCol";
+        else intro.className = "flexCol";
+        
+        function quizPre() {
+            // question 1
+            let q1 = parseInt(document.getElementById("q1").value);
+            if (q1 < 25)      jamie++;
+            else if (q1 < 50) senator++;
+            else if (q1 < 75) minoshka++;
+            else              conrad++;
+
+            // question 2
+            let q2 = document.getElementsByName("q2");
+            if (q2[0].checked) { jamie++; conrad++; }
+            else               { minoshka++; senator++;}
+
+            // question 3
+            let q3 = document.getElementsByName("q3");
+            if (q3[0].checked) { conrad++; minoshka++; }
+            else               { jamie++; senator++;}
+
+            str="V1";
+            
+            // pass
+            let pass1 = document.getElementById("pass1");
+            pass1.value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str;
+        }
+        function vid1func() {
+            document.getElementById("passv1").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-POST";
+        }
+        function quizPost() {
+            // question 4
+            let q4 = document.getElementsByName("q4");
+            if (q4[0].checked) { conrad++; minoshka++; str="G" ;}
+            else               { jamie++; senator++; str="S"; }
+            
+            let pass2 = document.getElementById("pass2");
+            pass2.value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str;
+        }
+        function vid2func() {
+            document.getElementById("passv2").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-GDONE";
+        }
+        function vid3func() {
+            document.getElementById("passv3").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-SDONE";
+        }
+
+        // code
+        if (str === "GDONE") document.getElementById("codef").innerHTML = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-G";
+        if (str === "SDONE") document.getElementById("codef").innerHTML = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-S";
+
+    </script>
+</html>

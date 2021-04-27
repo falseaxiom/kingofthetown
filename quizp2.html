@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>King of the Town</title>
+        <link rel="stylesheet" href="styles.css"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body class="town">
+
+        <div  id="container" style="width: 80%">
+            <!-- code input -->
+            <div class="flexCol" id="intro">
+                <!-- testing -->
+                <span>hello. part 2</span>
+                <br/>
+
+                <span class="title">Please enter your code:</span>
+                <form
+                    class="flexRow"
+                    action="./quizp2.html"
+                    onSubmit="return validate()"
+                >  
+                    <input type="text" id="code" name="code" style="border-color: var(--ftown);" placeholder="code goes here">
+                    <button type="submit" class="submitButton" style="background-color: var(--ftown);" name="section" value="pre" onclick="validate()">enter</button>
+                </form>
+            </div>
+
+            <!-- pre-scene -->
+            <div class="flexCol hidden" id="pre">hello</div>
+
+            <!-- post-scene -->
+            <div class="flexCol hidden" id="post">goodbye</div>
+        </div>
+
+        <!-- admin only - return to index -->
+        <a style="position: absolute; bottom: 1vh; left: 1vw; font-size: 1rem;" href="./">
+            index
+        </a>
+    </body>
+    <script>
+        // get part/code
+        let param = window.location.href.split("?");
+        let p;
+        if (param.length > 1) p = param[1].split(/=|&/);
+
+        console.log(p)
+
+        // get sections
+        let intro = document.getElementById("intro");
+        let pre = document.getElementById("pre");
+        let post = document.getElementById("post");
+
+        // hide as appropriate
+        if (p != undefined) {
+            if (p[3] === "pre") {
+                intro.className = "flexCol hidden";
+                pre.className = "flexCol";
+                post.className = "flexCol hidden";
+            }
+            else if (p[3] === "post") {
+                intro.className = "flexCol hidden";
+                pre.className = "flexCol hidden";
+                post.className = "flexCol";
+            }
+        }
+
+        function validate() {
+            
+        }
+    </script>
+</html>
