@@ -6,31 +6,120 @@
         <link rel="preconnect" href="https://fonts.gstatic.com"> 
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     </head>
-    <body class="town">
-
-        <div  id="container" style="width: 80%">
+    <body class="town" id="body">
+        <div  id="container" style="width: 80%; overflow: hidden">
             <!-- code input -->
-            <div class="flexCol" id="intro">
-                <!-- testing -->
-                <span>hello. part 2</span>
-                <br/>
-
+            <div class="flexCol hidden" id="intro">
                 <span class="title">Please enter your code:</span>
                 <form
                     class="flexRow"
                     action="./quizp2.html"
-                    onSubmit="return validate()"
+                    onSubmit="return true"
                 >  
                     <input type="text" id="code" name="code" style="border-color: var(--ftown);" placeholder="code goes here">
-                    <button type="submit" class="submitButton" style="background-color: var(--ftown);" name="section" value="pre" onclick="validate()">enter</button>
+                    <button type="submit" class="submitButton" style="background-color: var(--ftown);">enter</button>
                 </form>
             </div>
 
             <!-- pre-scene -->
-            <div class="flexCol hidden" id="pre">hello</div>
+            <div class="flexCol hidden" id="pre">
+                pre
+                <button type="submit" class="submitButton townButton" onclick="vid3func()">Continue</button>
+            </div>
+
+            <!-- video 2.1 -->
+            <div class="flexCol hidden" id="vid1">
+                <span>please watch video 2.1 before continuing</span>
+                <form
+                    class="flexCol"
+                    action="./quizp2.html"
+                    onSubmit="return vid1func()"
+                >
+                    <input id="passv1" name="code" class="hidden" style="font-size: 0rem">
+                    <button type="submit" class="submitButton townButton" onclick="vid1func()">Continue</button>
+                </form>
+            </div>
+
+            <!-- video 2.2 -->
+            <div class="flexCol hidden" id="vid2">
+                <span>please watch video 2.2 before continuing</span>
+                <form
+                    class="flexCol"
+                    action="./quizp2.html"
+                    onSubmit="return vid2func()"
+                >
+                    <input id="passv2" name="code" class="hidden" style="font-size: 0rem">
+                    <button type="submit" class="submitButton townButton" onclick="vid2func()">Continue</button>
+                </form>
+            </div>
 
             <!-- post-scene -->
-            <div class="flexCol hidden" id="post">goodbye</div>
+            <div class="flexCol hidden" id="post">post</div>
+
+            <!-- video 2.3 -->
+            <div class="flexCol hidden" id="vid3">
+                <span>please watch video 2.3 before continuing</span>
+                <form
+                    class="flexCol"
+                    action="./quizp2.html"
+                    onSubmit="return vid3func()"
+                >
+                    <input id="passv3" name="code" class="hidden" style="font-size: 0rem">
+                    <button type="submit" class="submitButton townButton" onclick="vid3func()">Continue</button>
+                </form>
+            </div>
+
+            <!-- video 2.4 -->
+            <div class="flexCol hidden" id="vid4">
+                <span>please watch video 2.4 before continuing</span>
+                <form
+                    class="flexCol"
+                    action="./quizp2.html"
+                    onSubmit="return vid4func()"
+                >
+                    <input id="passv4" name="code" class="hidden" style="font-size: 0rem">
+                    <button type="submit" class="submitButton townButton" onclick="vid4func()">Continue</button>
+                </form>
+            </div>
+
+            <!-- video 2.5 -->
+            <div class="flexCol hidden" id="vid5">
+                <span>please watch video 2.5 before continuing</span>
+                <form
+                    class="flexCol"
+                    action="./quizp2.html"
+                    onSubmit="return vid5func()"
+                >
+                    <input id="passv5" name="code" class="hidden" style="font-size: 0rem">
+                    <button type="submit" class="submitButton townButton" onclick="vid5func()">Continue</button>
+                </form>
+            </div>
+
+            <!-- video 2.6 -->
+            <div class="flexCol hidden" id="vid6">
+                <span>please watch video 2.6 before continuing</span>
+                <form
+                    class="flexCol"
+                    action="./quizp2.html"
+                    onSubmit="return vid6func()"
+                >
+                    <input id="passv6" name="code" class="hidden" style="font-size: 0rem">
+                    <button type="submit" class="submitButton townButton" onclick="vid6func()">Continue</button>
+                </form>
+            </div>
+
+            <!-- exit -->
+            <div class="flexCol hidden" id="done">
+                <span class="title">CONGRATULATIONS!</span>
+                <span class="title">You have completed PART 2 of this adventure.</span>
+                <span class="title">Please input the following code at the next machine:</span>
+                <br/>
+                <span class="bigTitle" id="codef"></span>
+                <br/>
+                <span class="title">Once you've written down your code, please reset this machine for the next player by clicking the button below. Thank you! :)</span>
+                <br/>
+                <button type="submit" class="submitButton townButton" onclick="location.href = './quizp2.html?code=0-0-0-0-';">Reset</button>
+            </div>
         </div>
 
         <!-- admin only - return to index -->
@@ -43,30 +132,93 @@
         let param = window.location.href.split("?");
         let p;
         if (param.length > 1) p = param[1].split(/=|&/);
-
         console.log(p)
 
-        // get sections
+        // CHARACTER VARS & CHARTSTRING
+        let scores = p[1].split("-");
+        let conrad = parseInt(scores[0]);
+        let jamie = parseInt(scores[1]);
+        let minoshka = parseInt(scores[2]);
+        let senator = parseInt(scores[3]);
+        let str = scores[4];
+        console.log(scores)
+
+        // SECTIONS
         let intro = document.getElementById("intro");
         let pre = document.getElementById("pre");
+        let vid1 = document.getElementById("vid1");
+        let vid2 = document.getElementById("vid2");
         let post = document.getElementById("post");
+        let vid3 = document.getElementById("vid3");
+        let vid4 = document.getElementById("vid4");
+        let vid5 = document.getElementById("vid5");
+        let vid6 = document.getElementById("vid6");
+        let done = document.getElementById("done");
 
-        // hide as appropriate
-        if (p != undefined) {
-            if (p[3] === "pre") {
-                intro.className = "flexCol hidden";
-                pre.className = "flexCol";
-                post.className = "flexCol hidden";
-            }
-            else if (p[3] === "post") {
-                intro.className = "flexCol hidden";
-                pre.className = "flexCol hidden";
-                post.className = "flexCol";
-            }
-        }
-
-        function validate() {
+        // change theme as appropriate
+        console.log(str.substring(0,1))
+        if (str.substring(0,1) === "G") {
+            console.log("metro mode ACTIVATE")
+            document.getElementsByClassName("submitButton townButton").className = "submitButton metroButton";
             
         }
+
+        // hide widgets as appropriate
+        let widget = str.substring(1);
+        if (widget === "PRE") pre.className = "flexCol";
+        else if (widget === "V1") vid1.className = "flexCol";
+        else if (widget === "POST") post.className = "flexCol";
+        else if (widget === "G") vid2.className = "flexCol";
+        else if (widget === "S") vid3.className = "flexCol";
+        else if (widget === "GDONE" || widget === "SDONE") done.className = "flexCol";
+        else intro.className = "flexCol";
+        
+        function quizPre() {
+            // question 1
+            let q1 = parseInt(document.getElementById("q1").value);
+            if (q1 < 25)      jamie++;
+            else if (q1 < 50) senator++;
+            else if (q1 < 75) minoshka++;
+            else              conrad++;
+
+            // question 2
+            let q2 = document.getElementsByName("q2");
+            if (q2[0].checked) { jamie++; conrad++; }
+            else               { minoshka++; senator++;}
+
+            // question 3
+            let q3 = document.getElementsByName("q3");
+            if (q3[0].checked) { conrad++; minoshka++; }
+            else               { jamie++; senator++;}
+
+            str="V1";
+            
+            // pass
+            let pass1 = document.getElementById("pass1");
+            pass1.value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str;
+        }
+        function vid1func() {
+            document.getElementById("passv1").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-POST";
+        }
+        function quizPost() {
+            // question 4
+            let q4 = document.getElementsByName("q4");
+            if (q4[0].checked) { conrad++; minoshka++; str="G" ;}
+            else               { jamie++; senator++; str="S"; }
+            
+            let pass2 = document.getElementById("pass2");
+            pass2.value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str;
+        }
+        function vid2func() {
+            document.getElementById("passv2").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-GDONE";
+        }
+        function vid3func() {
+            document.getElementById("passv3").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-SDONE";
+        }
+
+        // code
+        if (str === "GDONE") document.getElementById("codef").innerHTML = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-G";
+        if (str === "SDONE") document.getElementById("codef").innerHTML = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-S";
+
     </script>
 </html>

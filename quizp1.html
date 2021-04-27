@@ -30,7 +30,7 @@
                     action="./quizp1.html"
                     onSubmit="return true"
                 >
-                    <button type="submit" class="submitButton" id="townButton" name="code" value="0-0-0-0-PRE">Let's begin!</button>
+                    <button type="submit" class="submitButton townButton" name="code" value="0-0-0-0-PRE">Let's begin!</button>
                 </form>
             </div>
 
@@ -63,7 +63,7 @@
                 <div><input type="radio" name="q3" id="home" value="opt"><label for="opt"> Optimistic</label></div>
                 <div><input type="radio" name="q3" id="out" value="pess"><label for="pess"> Pessimistic</label></div>
                 <br/>
-                <button type="submit" class="submitButton" id="townButton" onclick="quizPre()">Submit</button>
+                <button type="submit" class="submitButton townButton" onclick="quizPre()">Submit</button>
             </form>
 
             <!-- video 1.1 -->
@@ -75,7 +75,7 @@
                     onSubmit="return vid1func()"
                 >
                     <input id="passv1" name="code" class="hidden" style="font-size: 0rem">
-                    <button type="submit" class="submitButton" id="townButton" onclick="vid1func()">Continue</button>
+                    <button type="submit" class="submitButton townButton" onclick="vid1func()">Continue</button>
                 </form>
             </div>
 
@@ -93,7 +93,7 @@
             <div><input type="radio" name="q4" id="go" value="go"><label for="go"> Go to Metropolis</label></div>
             <div><input type="radio" name="q4" id="stay" value="stay"><label for="stay"> Stay in Stamtown</label></div>
             <br/>
-            <button type="submit" class="submitButton" id="townButton" onclick="quizPost()">Submit</button>
+            <button type="submit" class="submitButton townButton" onclick="quizPost()">Submit</button>
             </form>
 
             <!-- video 1.2 -->
@@ -105,7 +105,7 @@
                     onSubmit="return vid2func()"
                 >
                     <input id="passv2" name="code" class="hidden" style="font-size: 0rem">
-                    <button type="submit" class="submitButton" id="townButton" onclick="vid2func()">Continue</button>
+                    <button type="submit" class="submitButton townButton" onclick="vid2func()">Continue</button>
                 </form>
             </div>
 
@@ -118,11 +118,11 @@
                     onSubmit="return vid3func()"
                 >
                     <input id="passv3" name="code" class="hidden" style="font-size: 0rem">
-                    <button type="submit" class="submitButton" id="townButton" onclick="vid3func()">Continue</button>
+                    <button type="submit" class="submitButton townButton" onclick="vid3func()">Continue</button>
                 </form>
             </div>
 
-            <!-- video 1.3 -->
+            <!-- exit -->
             <div class="flexCol hidden" id="done">
                 <span class="title">CONGRATULATIONS!</span>
                 <span class="title">You have completed PART 1 of this adventure.</span>
@@ -132,7 +132,7 @@
                 <br/>
                 <span class="title">Once you've written down your code, please reset this machine for the next player by clicking the button below. Thank you! :)</span>
                 <br/>
-                <button type="submit" class="submitButton" id="townButton" onclick="location.href = './quizp1.html?code=0-0-0-0-';">Reset</button>
+                <button type="submit" class="submitButton townButton" onclick="location.href = './quizp1.html?code=0-0-0-0-';">Reset</button>
             </div>
         </div>
         
@@ -166,7 +166,7 @@
         let vid3 = document.getElementById("vid3");
         let done = document.getElementById("done");
 
-        // hide as appropriate
+        // hide widgets as appropriate
         if (str === "PRE") pre.className = "flexCol";
         else if (str === "V1") vid1.className = "flexCol";
         else if (str === "POST") post.className = "flexCol";
@@ -219,8 +219,8 @@
         }
 
         // code
-        if (str === "GDONE") document.getElementById("codef").innerHTML = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-G";
-        if (str === "SDONE") document.getElementById("codef").innerHTML = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-S";
+        if (str === "GDONE") document.getElementById("codef").innerHTML = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-GPRE";
+        if (str === "SDONE") document.getElementById("codef").innerHTML = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-SPRE";
 
     </script>
 </html>

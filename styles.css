@@ -92,17 +92,13 @@ a{
     color: white;
     font-family: 'Roboto Mono', monospace;
 }
-#townButton{
+.townButton{
     background-color: var(--ftown);
     color: var(--bgtown);
 }
-#metroButton{
+.metroButton{
     background-color: var(--fmetro);
     color: var(--bgmetro);
-}
-#creditButton{
-    background-color: black;
-    color: var(--green);
 }
 
 /* hidden stuff */
