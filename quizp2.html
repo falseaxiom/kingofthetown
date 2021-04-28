@@ -246,13 +246,15 @@
             if (sg1=="G") vid4.className = "flexCol";
             else vid6.className = "flexCol";
         }
-        else if (widget === "GDONE" || widget === "SDONE") {
-            done.className = "flexCol";
+        else if (widget === "GDONE" || widget === "SDONE") done.className = "flexCol";
+        else intro.className = "flexCol";
+
+        // if not a survey slide, hide radios
+        if (!(widget === "PRE" || widget === "POST")) {
             let radios = document.querySelectorAll('input[type=radio]');
             radios = Array.from(radios);
             radios.forEach(r => r.className = "hidden");
         }
-        else intro.className = "flexCol";
         
         function quizPre() {
             // question 1

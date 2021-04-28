@@ -70,7 +70,12 @@
 
             <!-- video 3 -->
             <div class="flexCol hidden" id="vid3">
-                <span>please watch video 3 before continuing</span>
+                <span class="title" style="align-self: center;">Please watch SCENE 3 before continuing.</span>
+                <video width="1080" height="720" style="align-self: center;" controls>
+                    <source src="vids/vid3.mov" type="video/mp4">
+                    no video :(
+                </video>
+                <br/>
                 <form
                     class="flexCol"
                     action="./quizp3.html"
@@ -195,10 +200,88 @@
                 </form>
             </div>
 
-            <!-- exit -->
-            <div class="flexCol hidden" id="done">
+            <!-- test results -->
+            <div class="flexCol hidden" id="results">
                 <span class="title">CONGRATULATIONS!</span>
                 <span class="title">You have completed <span style="color: var(--green)">PART 3</span> of this adventure.</span>
+                <span class="title">Based on your answers to the personality test, you are:</span>
+                <div class="flexCol hidden" id="conrad">
+                    <span class="bigTitle" style="color: var(--green)">CONRAD!</span>
+                    <span class="title">
+                        You are <span style="color: var(--pink)">enthusiastic,</span> <span style="color: var(--blue)">dreamy,</span> 
+                        and always looking on the <span style="color: var(--yellow)">bright side</span> of things. This is one of your 
+                        great <span style="color: var(--green)">strengths,</span> as you are a <span style="color: var(--pink)">resilient</span> 
+                        and <span style="color: var(--yellow)">positive</span> presence. You have an <span style="color: var(--blue)">artistic nature</span> 
+                        that can manifest in <span style="color: var(--blue)">music</span> or other energies! However, just because you are 
+                        <span style="color: var(--yellow)">positive</span> and <span style="color: var(--green)">self-content</span> doesn’t mean
+                        you shouldn’t take <span style="color: var(--pink)">risks!</span> Sometimes, even if a decision would mean something 
+                        <span style="color: var(--yellow)">scary</span> or <span style="color: var(--green)">uncomfortable</span> to your 
+                        current way of life, it’s still one you should take.   
+                    </span>
+                </div>
+                <div class="flexCol hidden" id="jamie">
+                    <span class="bigTitle" style="color: var(--blue)">JAMIE!</span>
+                    <span class="title">
+                        You’re constantly looking to the <span style="color: var(--green)">future.</span> You’re <span style="color: var(--pink)">bold,</span> 
+                        <span style="color: var(--yellow)">innovative,</span> and not afraid to get out there, and you’re often the 
+                        <span style="color: var(--blue)">life of the party.</span> <span style="color: var(--green)">Outgoing</span> and 
+                        <span style="color: var(--pink)">exuberant,</span> you have a way about you that makes people <span style="color: var(--blue)">sit up</span> and 
+                        <span style="color: var(--yellow)">listen.</span> But you also have a <span style="color: var(--blue)">quieter</span> side, 
+                        so make sure to listen to it! After all, <span style="color: var(--green)">life</span> isn’t just about what 
+                        <span style="color: var(--yellow)">other people</span> think about you. Go out there and 
+                        <span style="color: var(--pink)">grab</span> it.   
+                    </span>
+                </div>
+                <div class="flexCol hidden" id="minoshka">
+                    <span class="bigTitle" style="color: var(--pink)">MINOSHKA!</span>
+                    <span class="title">
+                        You’re a bit of a <span style="color: var(--yellow)">nutcase,</span> and that’s why people <span style="color: var(--pink)">love</span> you! 
+                        You’re a <span style="color: var(--green)">go-getter</span> and an emitter of <span style="color: var(--blue)">undiluted positive vibes.</span> 
+                        You also seem to have <span style="color: var(--green)">unlimited energy,</span> a <span style="color: var(--pink)">social butterfly</span> that 
+                        is <span style="color: var(--yellow)">everywhere at once.</span> People are <span style="color: var(--blue)">drawn</span> to you for what you 
+                        have to say, but <span style="color: var(--yellow)">be careful</span> - sometimes those <span style="color: var(--green)">manic vibes</span> 
+                        can make you <span style="color: var(--pink)">self-combust.</span>
+                    </span>
+                </div>
+                <div class="flexCol hidden" id="senator">
+                    <span class="bigTitle" style="color: var(--yellow)">SENATOR TOMROMADROM!</span>
+                    <span class="title">
+                        <span style="color: var(--blue)">Experienced</span> and <span style="color: var(--green)">self-confident</span> you are the voice of 
+                        <span style="color: var(--yellow)">authority</span> in the room. You’re <span style="color: var(--pink)">comfortable</span> in 
+                        <span style="color: var(--yellow)">command</span> and making <span style="color: var(--green)">executive decisions,</span> and you’re 
+                        always <span style="color: var(--blue)">looking out for yourself,</span> even if it means impersonating a <span style="color: var(--willow)">tree.</span> 
+                        It’s a great <span style="color: var(--green)">strength</span> to be so <span style="color: var(--pink)">self-assured</span> and <span style="color: var(--yellow)">driven,</span> 
+                        but make sure to <span style="color: var(--pink)">appreciate</span> the <span style="color: var(--blue)">people around you</span> every now and then.
+                    </span>
+                </div>
+                <div class="flexCol hidden" id="willow">
+                    <span class="bigTitle" style="color: var(--willow)">WILLOW!(???)</span>
+                    <span class="title">
+                        You are an <span style="color: var(--willow)">old soul, firmly rooted</span> and <span style="color: var(--willow)">stable.</span> People 
+                        <span style="color: var(--willow)">lean on you</span> for <span style="color: var(--willow)">support,</span> and what can you do but 
+                        <span style="color: var(--willow)">help?</span> However, make sure you’re also <span style="color: var(--willow)">taking care of yourself.</span> 
+                        It can be <span style="color: var(--willow)">hard</span> sometimes, being an <span style="color: var(--willow)">old willow tree</span> - but 
+                        try not to get too <span style="color: var(--willow)">grumpy</span> with those <span style="color: var(--willow)">young folks</span> gallivanting 
+                        about, and <span style="color: var(--willow)">stop</span> and <span style="color: var(--willow)">smell the roses!</span> (Or whatever rose petals 
+                        float your way, since, you know, you don’t move around too much.)
+                    </span>
+                    <span class="title">
+                        You weren't supposed to be able to get this result, but maybe you're just built different. 😳
+                    </span>
+                </div>
+                <br/>
+                <form
+                    class="flexCol"
+                    action="./quizp3.html"
+                    onSubmit="return quizRes()"
+                >
+                    <input type="hidden" id="pass4" name="code">
+                    <button type="submit" class="submitButton" onclick="quizRes()">Continue</button>
+                </form>
+            </div>
+
+            <!-- exit -->
+            <div class="flexCol hidden" id="done">
                 <span class="title">Thank you for playing</span>
                 <br/>
                 <span class="bigTitle">
@@ -207,7 +290,7 @@
                     and a <span style="color: var(--blue)">Living Comic Strip.</span>
                 </span>
                 <br/>
-                <span class="title">Please reset this machine for the next player by clicking the button below. Thank you! :)</span>
+                <span class="title">Please reset this machine for the next player by clicking the button below. Have a lovely day! :)</span>
                 <br/>
                 <button type="submit" class="submitButton" onclick="location.href = './quizp3.html?code=0-0-0-0-';">Reset</button>
             </div>
@@ -248,6 +331,7 @@
         let vid51 = document.getElementById("vid51");
         let vid52 = document.getElementById("vid52");
         let vid53 = document.getElementById("vid53");
+        let results = document.getElementById("results");
         let done = document.getElementById("done");
 
         // change theme as appropriate
@@ -296,13 +380,24 @@
         else if (widget === "J" || widget === "M") vid51.className = "flexCol";
         else if (widget === "C") vid52.className = "flexCol";
         else if (widget === "S") vid53.className = "flexCol";
-        else if (widget.substring(1) === "DONE") {
-            done.className = "flexCol";
+        else if (widget.substring(1) === "RESULTS") {
+            results.className = "flexCol";
+            let res = widget.substring(0,1);
+            if (res === "C") document.getElementById("conrad").className = "flexCol";
+            else if (res === "J") document.getElementById("jamie").className = "flexCol";
+            else if (res === "M") document.getElementById("minoshka").className = "flexCol";
+            else if (res === "S") document.getElementById("senator").className = "flexCol";
+            else document.getElementById("willow").className = "flexCol";
+        }
+        else if (widget === "DONE") done.className = "flexCol";
+        else intro.className = "flexCol";
+
+        // if not a survey slide, hide radios
+        if (!(widget === "PRE" || widget === "POST" || widget === "POST2")) {
             let radios = document.querySelectorAll('input[type=radio]');
             radios = Array.from(radios);
             radios.forEach(r => r.className = "hidden");
         }
-        else intro.className = "flexCol";
         
         function quizPre() {
             // question 1
@@ -362,14 +457,23 @@
             else if (winner == minoshka) str = sg1 + sg2 + "M";
             else                        str = sg1 + sg2 + "S";
 
+            // randomize for willow
+            let randy = Math.random();
+            if (randy < 0.001) str = sg1 + sg2 + "W";
+
             
             let pass2 = document.getElementById("pass3");
             pass2.value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str;
         }
         function vid5func() {
-            document.getElementById("passv51").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str + "DONE";
-            document.getElementById("passv52").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str + "DONE";
-            document.getElementById("passv52").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str + "DONE";
+            document.getElementById("passv51").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str + "RESULTS";
+            document.getElementById("passv52").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str + "RESULTS";
+            document.getElementById("passv52").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str + "RESULTS";
+        }
+        function quizRes() {
+            document.getElementById("pass4").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + sg1 + sg2 + "DONE";
+            document.getElementById("pass4").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + sg1 + sg2 + "DONE";
+            document.getElementById("pass4").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + sg1 + sg2 + "DONE";
         }
     </script>
 </html>
