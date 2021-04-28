@@ -406,7 +406,7 @@
         else intro.className = "flexCol";
 
         // if not a survey slide, hide radios
-        if (!(widget === "PRE" || widget === "POST" || widget === "POST2")) {
+        if (!(widget === "PRE" || widget === "POST" || widget.substring(1) === "POST2")) {
             let radios = document.querySelectorAll('input[type=radio]');
             radios = Array.from(radios);
             radios.forEach(r => r.className = "hidden");
