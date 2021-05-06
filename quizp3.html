@@ -469,16 +469,15 @@
             else if (winner == jamie)   str = sg1 + sg2 + "J";
             else if (winner == minoshka) str = sg1 + sg2 + "M";
             else                        str = sg1 + sg2 + "S";
-
-            // randomize for willow
-            let randy = Math.random();
-            if (randy < 0.001) str = sg1 + sg2 + "W";
-
             
             let pass2 = document.getElementById("pass3");
             pass2.value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str;
         }
         function vid5func() {
+            // randomize for willow
+            let randy = Math.random();
+            if (randy < 0.001) str = sg1 + sg2 + "W";
+            
             document.getElementById("passv51").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str + "RESULTS";
             document.getElementById("passv52").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str + "RESULTS";
             document.getElementById("passv53").value = conrad + "-" + jamie + "-" + minoshka + "-" + senator + "-" + str + "RESULTS";
